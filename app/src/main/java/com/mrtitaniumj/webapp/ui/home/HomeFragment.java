@@ -20,10 +20,11 @@ import com.mrtitaniumj.webapp.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
+        homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -31,7 +32,7 @@ public class HomeFragment extends Fragment {
 
         final WebView homeWebView = binding.idWebViewHome;
         final ProgressBar loadingPB = binding.idPBLoading;
-        homeWebView.loadUrl("https://jatinsgolb.wordpress.com/");
+        homeWebView.loadUrl("https://www.jatinsgolb.wordpress.com");
         homeWebView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {

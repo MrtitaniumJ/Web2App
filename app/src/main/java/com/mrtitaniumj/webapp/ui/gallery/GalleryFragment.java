@@ -20,10 +20,11 @@ import com.mrtitaniumj.webapp.databinding.FragmentGalleryBinding;
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
+    private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
+        galleryViewModel =
                 new ViewModelProvider(this).get(GalleryViewModel.class);
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
@@ -31,7 +32,7 @@ public class GalleryFragment extends Fragment {
 
         final WebView blogsWebView = binding.idWebViewBlogs;
         final ProgressBar loadingPB = binding.idPBLoading;
-        blogsWebView.loadUrl("https://jatinsgolb.wordpress.com/");
+        blogsWebView.loadUrl("https://www.jatinsgolb.wordpress.com");
         blogsWebView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {

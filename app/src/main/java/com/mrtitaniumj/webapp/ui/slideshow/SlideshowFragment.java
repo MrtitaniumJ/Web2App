@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,19 +18,19 @@ import com.mrtitaniumj.webapp.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 
+    private SlideshowViewModel slideshowViewModel;
     private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        slideshowViewModel = new ViewModelProvider(this).get(SlideshowViewModel.class);
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final WebView aboutWebView = binding.idWebViewAbout;
         final ProgressBar loadingPB = binding.idPBLoading;
-        aboutWebView.loadUrl("https://jatinsgolb.wordpress.com/");
+        aboutWebView.loadUrl("https://jatinsgolb.wordpress.com");
         aboutWebView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
